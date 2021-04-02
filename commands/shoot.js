@@ -7,5 +7,5 @@ module.exports = function(message, args) {
 //    );
 //    const member = message.member;
 //    member.roles.add(mainrole.id);
-    member.addRole(member.guild.roles.find(role => role.name === "Shot(Muted)"));
+channel.message.send("I haven't finished this yet...")
 }
