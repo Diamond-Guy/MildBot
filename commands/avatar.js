@@ -6,6 +6,6 @@ module.exports = function(message, args) {
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle(`${user.username}'s avatar`)
-            .setImage(user.avatarURL({ dynamic: true, format: 'png'}));
+            .setImage(user.avatarURL({ dynamic: true, format: 'png', size: 1024}));
         message.channel.send(avatarEmbed);
 }
