@@ -6,5 +6,5 @@ module.exports = function(message, args) {
         role => role.name === "Shot(Muted)"
     );
     const member = message.member;
-    member.roles.add(mainrole.id);
+    member.roles.add(mainrole);
 }
