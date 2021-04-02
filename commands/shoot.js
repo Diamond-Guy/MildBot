@@ -1,5 +1,5 @@
 module.exports = function(message, args) {
-    let mutedRole = message.guid.roles.cache.find(r => r.name === "Shot(Muted)");
+    let role = message.guild.roles.cache.find(r => r.name === "Shot(Muted)");
     let member = message.mentions.members.first();
-    member.roles.add(mutedRole).catch(console.error);
+    member.roles.add(role).catch(console.error);
 }
