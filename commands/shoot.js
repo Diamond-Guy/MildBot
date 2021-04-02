@@ -11,7 +11,7 @@ module.exports = function(message, args) {
     message.channel.permissionsFor(message.member).serialize(false)
 
 
-    let role = message.guild.roles.cache.find(r => r.name === "Shot(Muted)");
+    let role = message.guild.roles.cache.find(role => role.name === "Shot(Muted)");
     let member = message.mentions.members.first();
     member.roles.add(role).catch(console.error);
 }
