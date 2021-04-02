@@ -1,3 +1,6 @@
+const fetch = require('node-fetch');
+const Discord = require('discord.js');
+
 module.exports = function(message, args) {
 
 
@@ -11,7 +14,7 @@ module.exports = function(message, args) {
     message.channel.permissionsFor(message.member).serialize(false)
 
 
-    let role = message.guild.roles.cache.find(role => role.name === "Shot(Muted)");
+    var role = message.guild.roles.cache.find(role => role.name === "Shot(Muted)");
     let member = message.mentions.members.first();
     member.roles.add(role).catch(console.error);
 }
