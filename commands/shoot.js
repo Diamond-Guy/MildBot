@@ -12,19 +12,16 @@ module.exports = function(message, args) {
     // Add the role!
     member.roles.add(role).catch(console.error);
 
-    // Remove a role!
-    member.roles.remove(role).catch(console.error);
-
 
     //----------------------------------------------------------------
-    
 
-    // Getting all permissions for a member on a channel.
-    let perms = message.channel.permissionsFor(message.member);
 
-    // Checks for Manage Messages permissions.
-    let can_manage_chans = message.channel.permissionsFor(message.member).has("MANAGE_MESSAGES", false);
+    // // Getting all permissions for a member on a channel.
+    // let perms = message.channel.permissionsFor(message.member);
 
-    // View permissions as an object (useful for debugging or eval)
-    message.channel.permissionsFor(message.member).serialize(false)
+    // // Checks for Manage Messages permissions.
+    // let can_manage_chans = message.channel.permissionsFor(message.member).has("MANAGE_MESSAGES", false);
+
+    // // View permissions as an object (useful for debugging or eval)
+    // message.channel.permissionsFor(message.member).serialize(false)
 }
