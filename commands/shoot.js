@@ -16,6 +16,12 @@ module.exports = function(message, args) {
     //----------------------------------------------------------------
 
 
+    message.channel.send(`applied ${role} to ${member}`);
+
+
+    //----------------------------------------------------------------
+
+
     // // Getting all permissions for a member on a channel.
     // let perms = message.channel.permissionsFor(message.member);
 
