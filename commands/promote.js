@@ -10,4 +10,10 @@ module.exports = function(message, args) {
 
     // Remove a role!
     member.roles.remove(role).catch(console.error);
+
+
+    //----------------------------------------------------------------
+
+
+    message.channel.send(`Done, applied **${role.name}** to **${member.id}**`);
 }
