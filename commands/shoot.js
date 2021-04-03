@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = function(message, args) {
 //message.channel.send("I haven't finished this yet...");
 
@@ -5,5 +7,5 @@ module.exports = function(message, args) {
         role => role.name === "Shot(Muted)"
     );
     const member = message.member;
-    member.roles.add(`<@${mainrole}>`);
+    member.roles.add(mainrole.id);
 }
