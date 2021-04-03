@@ -16,7 +16,7 @@ module.exports = function(message, args) {
     //----------------------------------------------------------------
 
 
-    message.channel.send(`Done. Applied ${role.name} to ${member.name}`);
+    message.channel.send(`Done, applied **${role.name}** to **${member.id}**`);
 
 
     //----------------------------------------------------------------
