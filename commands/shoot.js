@@ -9,8 +9,21 @@ module.exports = function(message, args) {
 
     // or the person who made the command: let member = message.member;
 
-    // Add the role!
-    member.roles.add(role).catch(console.error);
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    let can_manage_chans = message.channel.permissionsFor(message.member).has("MANAGE_MESSAGES", true);
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+    if (can_manage_chans === true) {
+    
+        // Add the role!
+        member.roles.add(role).catch(console.error);
+    } else {
+        message.channel.send("bad request");
+    }
 
 
     //----------------------------------------------------------------
