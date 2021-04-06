@@ -9,6 +9,13 @@ module.exports = function(message, args) {
     // or the person who made the command: let member = message.member;
 
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    let can_manage_chans = message.channel.permissionsFor(message.member).has("MANAGE_MESSAGES", true);
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
     if (can_manage_chans === true) {
     
         // Remove a role!
