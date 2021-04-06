@@ -21,15 +21,13 @@ module.exports = function(message, args) {
     
         // Add the role!
         member.roles.add(role).catch(console.error);
+
+        //send role message
+        message.channel.send(`Done, applied **${role.name}** to **${member.id}**`);
+        
     } else {
-        message.channel.send("bad request");
+        message.channel.send("**You do not have the required permissons to use this command**");
     }
-
-
-    //----------------------------------------------------------------
-
-
-    message.channel.send(`Done, applied **${role.name}** to **${member.id}**`);
 
 
     //----------------------------------------------------------------

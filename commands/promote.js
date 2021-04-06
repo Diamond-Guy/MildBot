@@ -8,12 +8,16 @@ module.exports = function(message, args) {
 
     // or the person who made the command: let member = message.member;
 
-    // Remove a role!
-    member.roles.remove(role).catch(console.error);
 
+    if (can_manage_chans === true) {
+    
+        // Remove a role!
+        member.roles.remove(role).catch(console.error);
 
-    //----------------------------------------------------------------
-
-
-    message.channel.send(`Done, removed **${role.name}** from **${member.id}**`);
+        //send role message
+        message.channel.send(`Done, removed **${role.name}** from **${member.id}**`);
+        
+    } else {
+        message.channel.send("**You do not have the required permissons to use this command**");
+    }
 }
