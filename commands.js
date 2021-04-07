@@ -5,8 +5,9 @@ const botdate = require("./commands/botdate.js");
 const avatar = require("./commands/avatar.js");
 const shoot = require("./commands/shoot.js");
 const promote = require("./commands/promote.js");
+const help = require("./commands/help.js");
 
-const commands = { hello, gif, ping, botdate, avatar, shoot, promote };
+const commands = { hello, gif, ping, botdate, avatar, shoot, promote, help };
 
 module.exports = async function(message) {
     let tokens = message.content.split(' ');
