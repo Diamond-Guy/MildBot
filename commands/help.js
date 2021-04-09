@@ -20,23 +20,12 @@ module.exports = function(message, args) {
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
     message.channel.send(helpEmbed).then(sentEmbed => {
-        sentEmbed.react("🖥")
-        sentEmbed.react("💿")
-        sentEmbed.react("📡")
-        sentEmbed.react("⏱")
-        sentEmbed.react("🏡")
-    })
-
-    client.on('messageReactionAdd', (reaction, user) => {
-        if (reaction.message.channel.id === channelId) {
-            console.log('add')
-        }
-    })
-
-    client.on('messageReactionRemove', (reaction, user) => {
-        if (reaction.message.channel.id === channelId) {
-            console.log('remove')
-        }
+        message.react('🖥')
+			.then(() => message.react('💿'))
+			.then(() => message.react('📡'))
+            .then(() => message.react('⏱'))
+            .then(() => message.react('🏡'))
+			.catch(() => console.error('One of the emojis failed to react.'));
     })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
