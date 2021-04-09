@@ -25,10 +25,11 @@ module.exports = function(message, args) {
         sentEmbed.react("📡")
         sentEmbed.react("⏱")
         sentEmbed.react("🏡")
+        sentEmbed.react("❌")
     })
 
     const filter = (reaction, user) => {
-        return ['🖥', '💿', '📡', '⏱', '🏡'].includes(reaction.emoji.name) && user.id === message.author.id;
+        return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name) && user.id === message.channel.id;
     };
     
     message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
