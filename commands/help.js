@@ -37,16 +37,8 @@ module.exports = function(message, args) {
     
             if (reaction.emoji.name === '🖥') {
                 message.reply('you reacted with a dekstop emoji.');
-            } else if (reaction.emoji.name === '💿') {
-                message.reply('you reacted with a cd emoji.');
-            } else if (reaction.emoji.name === '📡') {
-                message.reply('you reacted with a satellite emoji.');
-            } else if (reaction.emoji.name === '⏱') {
-                message.reply('you reacted with a stopwatch emoji.');
-            } else if (reaction.emoji.name === '🏡') {
-                message.reply('you reacted with a house emoji.');
-            } else if (reaction.emoji.name === '❌') {
-                message.reply('you reacted with a red X emoji.');
+            } else {
+                message.reply('you reacted with something else.');
             }
         })
         .catch(collected => {
