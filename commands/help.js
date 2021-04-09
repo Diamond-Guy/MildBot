@@ -20,13 +20,30 @@ module.exports = function(message, args) {
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
     message.channel.send(helpEmbed).then(sentEmbed => {
-        message.react('🖥')
-			.then(() => message.react('💿'))
-			.then(() => message.react('📡'))
-            .then(() => message.react('⏱'))
-            .then(() => message.react('🏡'))
-			.catch(() => console.error('One of the emojis failed to react.'));
+        sentEmbed.react("🖥")
+        sentEmbed.react("💿")
+        sentEmbed.react("📡")
+        sentEmbed.react("⏱")
+        sentEmbed.react("🏡")
     })
+
+    const filter = (reaction, user) => {
+        return ['🖥', '💿', '📡', '⏱', '🏡'].includes(reaction.emoji.name) && user.id === message.author.id;
+    };
+    
+    message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+        .then(collected => {
+            const reaction = collected.first();
+    
+            if (reaction.emoji.name === '🖥') {
+                message.reply('you reacted with a dekstop emoji.');
+            } else {
+                message.reply('you reacted with something else.');
+            }
+        })
+        .catch(collected => {
+            message.reply('you didnt react with the correct emojis.');
+        });
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
 
