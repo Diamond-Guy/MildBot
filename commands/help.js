@@ -31,7 +31,7 @@ module.exports = function(message, args) {
         return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name);
     };
     
-    message.sentEmbed.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
+    sentEmbed.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
         .then(collected => {
             const reaction = collected.first();
     
