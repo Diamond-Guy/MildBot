@@ -27,7 +27,7 @@ module.exports = function(message, args) {
         sentEmbed.react("🏡")
         sentEmbed.react("❌")
 
-    const filter = (reaction, user) => {
+    const filter = (reaction) => {
         return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name);
     };
     
