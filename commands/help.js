@@ -22,8 +22,20 @@ module.exports = function(message, args) {
 
     //----------------------------------------------------------------
 
-    message.react('👍').then(r => {
-        message.react('👎');
-    });
+    const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
 
+    const emojis = {
+        desktop: 'desktop',
+        cd: 'cd',
+        satellite: 'satellite',
+        stopwatch: 'stopwatch',
+        house_with_garden: 'house_with_garden',
+    }
+
+    const reactions = []
+
+    for (const key in emojis) {
+        const emoji = getEmoji(key)
+        reactions.push(emoji)
+    }
 }
