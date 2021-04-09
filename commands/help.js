@@ -27,6 +27,18 @@ module.exports = function(message, args) {
         sentEmbed.react("🏡")
     })
 
+    client.on('messageReactionAdd', (reaction, user) => {
+        if (reaction.message.channel.id === channelId) {
+            console.log('add')
+        }
+    })
+
+    client.on('messageReactionRemove', (reaction, user) => {
+        if (reaction.message.channel.id === channelId) {
+            console.log('remove')
+        }
+    })
+
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
 
     // const emojis = {
