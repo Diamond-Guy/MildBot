@@ -18,24 +18,29 @@ module.exports = function(message, args) {
         .setImage('https://i.imgur.com/wSTFkRM.png')
         .setTimestamp()
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-        message.channel.send(helpEmbed);
 
-    //----------------------------------------------------------------
+    message.channel.send(helpEmbed).then(sentEmbed => {
+        sentEmbed.react("🖥")
+        sentEmbed.react("💿")
+        sentEmbed.react("📡")
+        sentEmbed.react("⏱")
+        sentEmbed.react("🏡")
+    })
 
-    const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
+    // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
 
-    const emojis = {
-        desktop: 'desktop',
-        cd: 'cd',
-        satellite: 'satellite',
-        stopwatch: 'stopwatch',
-        house_with_garden: 'house_with_garden',
-    }
+    // const emojis = {
+    //     desktop: 'desktop',
+    //     cd: 'cd',
+    //     satellite: 'satellite',
+    //     stopwatch: 'stopwatch',
+    //     house_with_garden: 'house_with_garden',
+    // }
 
-    const reactions = []
+    // const reactions = []
 
-    for (const key in emojis) {
-        const emoji = getEmoji(key)
-        reactions.push(emoji)
-    }
+    // for (const key in emojis) {
+    //     const emoji = getEmoji(key)
+    //     reactions.push(emoji)
+    // }
 }
