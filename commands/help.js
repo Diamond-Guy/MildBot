@@ -26,13 +26,12 @@ module.exports = function(message, args) {
         sentEmbed.react("⏱")
         sentEmbed.react("🏡")
         sentEmbed.react("❌")
-    })
 
     const filter = (reaction, user) => {
-        return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name) && user.id === message.channel.id;
+        return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
     };
     
-    message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+    message.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
         .then(collected => {
             const reaction = collected.first();
     
@@ -45,6 +44,7 @@ module.exports = function(message, args) {
         .catch(collected => {
             message.reply('you didnt react with the correct emojis.');
         });
+    })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
 
