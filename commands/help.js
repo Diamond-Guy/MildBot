@@ -20,11 +20,16 @@ module.exports = function(message, args) {
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
     message.channel.send(helpEmbed).then(sentEmbed => {
-        sentEmbed.react("🖥")
-        sentEmbed.react("💿")
-        sentEmbed.react("📡")
-        sentEmbed.react("⏱")
-        sentEmbed.react("🏡")
+        // sentEmbed.react("🖥")
+        // sentEmbed.react("💿")
+        // sentEmbed.react("📡")
+        // sentEmbed.react("⏱")
+        // sentEmbed.react("🏡")
+        sentMessage.react("🖥")
+        sentMessage.react("💿")
+        sentMessage.react("📡")
+        sentMessage.react("⏱")
+        sentMessage.react("🏡")
     })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
