@@ -33,7 +33,7 @@ module.exports = function(message, args) {
     
     sentEmbed.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
         .then(collected => {
-            const reaction = collected
+            const reaction = collected.first();
     
             if (reaction.emoji.name === '🖥') {
                 message.reply('you reacted with a dekstop emoji.');
@@ -41,9 +41,7 @@ module.exports = function(message, args) {
                 message.reply('you reacted with something else.');
             }
         })
-        .catch(collected => {
-            message.reply('you didnt react with the correct emojis.');
-        });
+
     })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
