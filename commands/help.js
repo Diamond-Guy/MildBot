@@ -41,7 +41,9 @@ module.exports = function(message, args) {
                 message.reply('you reacted with something else.');
             }
         })
-
+        .catch(collected => {
+            message.reply('you didnt react with the correct emojis.');
+        });
     })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
