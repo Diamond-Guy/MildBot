@@ -27,23 +27,28 @@ module.exports = function(message, args) {
         sentEmbed.react("🏡")
         sentEmbed.react("❌")
 
-    const filter = (reaction) => {
-        return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name);
+    const filter = (reaction, user) => {
+        return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
     };
     
-    sentEmbed.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
-        .then(collected => {
-            const reaction = collected.first();
+    sentEmbed.awaitReactions(filter, { max: 100, time: 60000 }).then(collected => {
+
+            const homeReaction = collected.first();
     
-            if (reaction.emoji.name === '🖥') {
-                message.reply('you reacted with a dekstop emoji.');
-            } else {
-                message.reply('you reacted with something else.');
+            if (homeReaction.emoji.name === '🖥') {
+                console.log('you reacted with a dekstop emoji.')
+            } else if (homeReaction.emoji.name === '💿') {
+                console.log('you reacted with a cd emoji.')
+            } else if (homeReaction.emoji.name === '📡') {
+                console.log('you reacted with a dish emoji.')
+            } else if (homeReaction.emoji.name === '⏱') {
+                console.log('you reacted with a stopwatch emoji.')
+            } else if (homeReaction.emoji.name === '🏡') {
+                console.log('you reacted with a house emoji.')
+            } else if (homeReaction.emoji.name === '❌') {
+                console.log('you reacted with a red X emoji.')
             }
         })
-        .catch(collected => {
-            message.reply('you didnt react with the correct emojis.');
-        });
     })
 
     // const getEmoji = emojiName => client.emoji.cache.find(emoji => emoji.name === emojiName)
