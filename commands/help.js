@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = function(message, args) {
     const helpEmbed = new Discord.MessageEmbed()
@@ -19,13 +20,13 @@ module.exports = function(message, args) {
         .setTimestamp()
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    message.channel.send(helpEmbed).then(sentEmbed => {
-        sentEmbed.react("🖥")
-        sentEmbed.react("💿")
-        sentEmbed.react("📡")
-        sentEmbed.react("⏱")
-        sentEmbed.react("🏡")
-        sentEmbed.react("❌")
+    message.channel.send(helpEmbed).then(async msg => {
+        await msg.react("🖥");
+        await msg.react("💿");
+        await msg.react("📡");
+        await msg.react("⏱");
+        await msg.react("🏡");
+        await msg.react("❌");
 
     const filter = (reaction) => {
         return ['🖥', '💿', '📡', '⏱', '🏡', '❌'].includes(reaction.emoji.name);
