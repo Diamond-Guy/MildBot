@@ -33,7 +33,7 @@ module.exports = function(message, args) {
     
     sentEmbed.awaitReactions(filter, { max: 100, time: 60000, errors: ['time'] })
         .then(collected => {
-            const reaction = collected.first();
+            const reaction = collected
     
             if (reaction.emoji.name === '🖥') {
                 message.reply('you reacted with a dekstop emoji.');
