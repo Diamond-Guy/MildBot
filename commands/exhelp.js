@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const Discord = require('discord.js');
 
-module.exports = function(message, args) {
+module.exports = async function(message, args) {
     const helpEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Some title')
